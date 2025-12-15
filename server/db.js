@@ -10,9 +10,9 @@ const devConfig = {
 };
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL, // <--- Render injects this automatically
+  connectionString: process.env.DATABASE_URL, // Comes from Render
   ssl: {
-    rejectUnauthorized: false // Required for Render/Supabase connections
+    rejectUnauthorized: false // <--- THIS IS REQUIRED FOR SUPABASE
   }
 };
 
