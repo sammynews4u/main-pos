@@ -4,9 +4,9 @@ const authorization = require("../middleware/authorization");
 
 router.get("/", authorization, async (req, res) => {
     try {
-        // 1. Get User Name
+        // 1. Get User Name AND Active Status
         const user = await pool.query(
-            "SELECT full_name FROM users WHERE id = $1", 
+            "SELECT full_name, is_active FROM users WHERE id = $1", 
             [req.user.id]
         );
 
@@ -22,9 +22,11 @@ router.get("/", authorization, async (req, res) => {
             [req.user.business_id]
         );
 
-        // Send all data back as one JSON object
+        // 4. Send Response
+        // We include 'is_active' so the Frontend can redirect inactive users
         res.json({
             full_name: user.rows[0].full_name,
+            is_active: user.rows[0].is_active, 
             total_sales: sales.rows[0].total || 0, // Return 0 if no sales yet
             total_items: stock.rows[0].total_items || 0
         });

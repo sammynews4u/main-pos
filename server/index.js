@@ -30,6 +30,9 @@ app.use("/products", require("./routes/products"));
 
 // NEW: Sales Route
 app.use("/sales", require("./routes/sales")); 
+
+// NEW PAYMENT ROUTE
+app.use("/payment", require("./routes/payment"));
 // ...
 
 // ... start server
