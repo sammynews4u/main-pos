@@ -33,6 +33,8 @@ app.use("/sales", require("./routes/sales"));
 
 // NEW PAYMENT ROUTE
 app.use("/payment", require("./routes/payment"));
+
+app.use("/expenses", require("./routes/expenses"));
 // ...
 
 // ... start server
