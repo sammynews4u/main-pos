@@ -35,6 +35,8 @@ app.use("/sales", require("./routes/sales"));
 app.use("/payment", require("./routes/payment"));
 
 app.use("/expenses", require("./routes/expenses"));
+
+app.use("/reports", require("./routes/reports"));
 // ...
 
 // ... start server
